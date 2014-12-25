@@ -144,6 +144,7 @@ public class ImgListAdapter extends BaseAdapter implements Filterable{
 			if(vid == holder.delete.getId()){
 			 //删除
 				list.remove(itemPosition);
+				//需要向服务器发post请求修改
 				notifyDataSetChanged();
 			}
 		    if(vid == holder.hide.getId()){
@@ -151,6 +152,7 @@ public class ImgListAdapter extends BaseAdapter implements Filterable{
 		    	if(temp.isHidden == false)
 		    	temp.isHidden = true;
 		    	else temp.isHidden = false;
+		    	//需要向服务器发post请求修改
 		    	list.set(this.itemPosition, temp);
 		    	notifyDataSetChanged();
 		    }
@@ -160,6 +162,7 @@ public class ImgListAdapter extends BaseAdapter implements Filterable{
 		    	if(temp.isMarked ==false)
 		    	temp.isMarked = true;
 		    	else temp.isMarked = false;
+		    	//需要向服务器发post请求修改
 		    	list.set(this.itemPosition, temp);
 		    	notifyDataSetChanged();
 		    }
@@ -167,6 +170,7 @@ public class ImgListAdapter extends BaseAdapter implements Filterable{
 		    	ImageElement temp = list.get(this.itemPosition);
 		    	if(temp.isRead == false)
 		    	temp.isRead = true;
+		    	//需要向服务器发post请求修改
 		    	list.set(this.itemPosition, temp);
 		    	notifyDataSetChanged();
 		    	Intent intent = new Intent(context,OneImageActivity.class);
